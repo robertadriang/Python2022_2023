@@ -100,7 +100,7 @@ def replace_under_diagonal(matrix):
 
 
 def replace_under_diagonal_2(matrix):
-    new_matrix = [[0 if i > j else matrix[i][j] for j in range(len(matrix)) ] for i in range(len(matrix[0]))]
+    new_matrix = [[0 if i > j else matrix[i][j] for j in range(len(matrix))] for i in range(len(matrix[0]))]
     return new_matrix
 
 

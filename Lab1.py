@@ -10,10 +10,21 @@ def gcd(a, b):
 
 
 def pb_1():
+    numbers = []
     number1 = int(input("First:"))
-    number2 = int(input("Second:"))
-    result = gcd(number1, number2)
-    print(result)
+    numbers.append(number1)
+    while True:
+        input_received = input("Next number (Q for exit):")
+        if input_received == 'Q':
+            break
+        number2 = int(input_received)
+        numbers.append(number2)
+        result = gcd(number1, number2)
+        number1 = result
+        print("Current result between {}: {}".format(numbers, result))
+
+
+pb_1()
 
 
 # # Write a script that calculates how many vowels are in a string.
@@ -55,8 +66,6 @@ import copy
 def camel_to_snake(text):
     return reduce(lambda a, b: a + ('_' if b in "QWERTYUIOPASDFGHJKLZXCVBNM" else '') + b, text).lower()
 
-
-# lambda :expression
 
 def pb_4():
     str3 = "UpperCamelCaseText"
@@ -193,21 +202,26 @@ def pb_8():
 
 # Write a functions that determine the most common letter in a string. For example if the string is "an apple is not a tomato", then the most common character is "a" (4 times). Only letters (A-Z or a-z) are to be considered. Casing should not be considered "A" and "a" represent the same character.
 def get_most_common_letter(text):
-    most_common=max([(i, text.count(i)) for i in set(text.lower()).intersection(string.ascii_lowercase)],key=lambda e:e[1])[0]
+    most_common = \
+    max([(i, text.count(i)) for i in set(text.lower()).intersection(string.ascii_lowercase)], key=lambda e: e[1])[0]
     print(most_common)
+
 
 def pb_9():
     get_most_common_letter("an apple is not a tomato")
 
-#Write a function that counts how many words exists in a text. A text is considered to be form out of words that are separated by only ONE space. For example: "I have Python2022_2023 exam" has 4 words.
+
+# Write a function that counts how many words exists in a text. A text is considered to be form out of words that are separated by only ONE space. For example: "I have Python2022_2023 exam" has 4 words.
 def count_words(text):
-    words=text.split(" ")
-    print(text,len(words))
+    words = text.split(" ")
+    print(text, len(words))
+
 
 def pb_10():
     count_words("I have Python2022_2023 exam")
     count_words("I have Python2022_2023 exam...")
     count_words("I have Python2022_2023 exam .")
+
 
 if __name__ == '__main__':
     # pb_1()

@@ -25,11 +25,11 @@ def compare_dictionaries(d1, d2):
     print(d1)
     print(d2)
     missmatches = []
-    if type(d1)!=type(d2):
+    if type(d1) != type(d2):
         missmatches.append("d1 and d2 have different types")
         return
-    for i,e in enumerate(d1):
-        if isinstance(d1,dict):
+    for i, e in enumerate(d1):
+        if isinstance(d1, dict):
             if e not in d2:
                 missmatches.append(e + " is only in d1")
                 return missmatches
@@ -37,21 +37,22 @@ def compare_dictionaries(d1, d2):
             if len(d1) != len(d2):
                 missmatches.append("lists have different len")
                 return missmatches
-            e=i
-        if isinstance(d1,(dict,list)):
+            e = i
+        if isinstance(d1, (dict, list)):
             if type(d1[e]) != type(d2[e]):
                 missmatches.append(e + " has different type in d1 and d2")
-            elif isinstance(d1[e],(list,dict)):
-                missmatches.append(compare_dictionaries(d1[e],d2[e]))
-            elif d1[e]!=d2[e]:
+            elif isinstance(d1[e], (list, dict)):
+                missmatches.append(compare_dictionaries(d1[e], d2[e]))
+            elif d1[e] != d2[e]:
                 missmatches.append(f"{d1[e]} has a different value from {d2[e]}")
+
     return missmatches
 
 
 print(compare_dictionaries({'start': 'a', 'b': 'a', 'a': '6', '6': 'z', 'x': '2', 'z': '2', '2': '2', 'y': 'start'},
-                     {'a': [3, 4], '{1, 2} | {2, 3}': {1, 2, 3}, '{1, 2} & {2, 3}': {2}, '{1, 2} - {2, 3}': {1},
-                      '{2, 3} - {1, 2}': {3}, '{2, 3} | {2, 3}': {2, 3}, '{2, 3} & {2, 3}': {2, 3},
-                      '{2, 3} - {2, 3}': set()}))
+                           {'a': [3, 4], '{1, 2} | {2, 3}': {1, 2, 3}, '{1, 2} & {2, 3}': {2}, '{1, 2} - {2, 3}': {1},
+                            '{2, 3} - {1, 2}': {3}, '{2, 3} | {2, 3}': {2, 3}, '{2, 3} & {2, 3}': {2, 3},
+                            '{2, 3} - {2, 3}': set()}))
 
 
 # 4. The build_xml_element function receives the following parameters: tag, content, and key-value elements given as name-parameters.
@@ -188,7 +189,7 @@ print("8:", loop({'start': 'a', 'b': 'a', 'a': '6', '6': 'z', 'x': '2', 'z': '2'
 # a variable number of keyword arguments
 # and will return the number of positional arguments whose values can be found among keyword arguments values.
 # Ex: my_function(1, 2, 3, 4, x=1, y=2, z=3, w=5) will return returna 3
-#Suprascriere de obiecte de apeleaza a doua functie
+# Suprascriere de obiecte de apeleaza a doua functie
 def my_function(*positional_arguments, **keyword_arguments):
     keyword_values = keyword_arguments.values()
     matches = 0
@@ -200,9 +201,9 @@ def my_function(*positional_arguments, **keyword_arguments):
 
 
 def my_function(*positional_arguments, **keyword_arguments):
-   p_set=set(positional_arguments)
-   k_set=set(keyword_arguments.values())
-   return len(p_set & k_set)
+    p_set = set(positional_arguments)
+    k_set = set(keyword_arguments.values())
+    return len(p_set & k_set)
 
 
 print("9:", my_function(1, 2, 3, 4, x=1, y=2, z=3, w=5))
